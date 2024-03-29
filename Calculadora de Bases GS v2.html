@@ -5,6 +5,7 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="style.css">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculadora de Bases GS</title>
 </head>
@@ -36,32 +37,28 @@
                                 <b>Octal</b>
                                 <input onclick="aparecer_octal()" type="checkbox">
                                 <br>
-                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(0, 0, 0); width: 150px; height: 50px; font-weight: 500;"
-                                        id="demo2"></div>
+                                <div class="cardNumeroResultado" id="demo2"></div>
                         </div>
 
                         <div class="cardResultado">
                                 <b>Hexadecimal</b>
                                 <input onclick="aparecer_hexa()" type="checkbox">
                                 <br>
-                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(7, 7, 7); width: 150px; height: 50px; font-weight: 500; text-transform: uppercase;"
-                                        id="demo3"></div>
+                                <div class="cardNumeroResultado" id="demo3"></div>
                         </div>
 
                         <div class="cardResultado">
                                 <b>Binário</b>
                                 <input onclick="aparecer_bin()" type="checkbox">
                                 <br>
-                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(5, 5, 5); width: 150px; height: 50px; font-weight: 500;"
-                                        id="demo4"></div>
+                                <div class="cardNumeroResultado" id="demo4"></div>
                         </div>
 
                         <div class="cardResultado">
                                 <b>Decimal</b>
                                 <input onclick="aparecer_decimal()" type="checkbox">
                                 <br>
-                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(5, 5, 5); width: 150px; height: 50px; font-weight: 500;"
-                                        id="demo5"></div>
+                                <div class="cardNumeroResultado" id="demo5"></div>
                         </div>
                 </div>
                 <br>
@@ -71,46 +68,7 @@
 
 
 
-        <script>
-
-                function converter() {
-                        var valorNumero = numero.value
-                        var valorBase = base.value
-
-                        var valorDecimal = parseInt(valorNumero, valorBase);
-
-                        var valorOctal = valorDecimal.toString(8);
-
-                        var valorHexadecimal = valorDecimal.toString(16);
-
-                        var valorBinaria = valorDecimal.toString(2);
-
-
-
-                        document.getElementById("demo2").innerHTML = ` ${valorOctal}`;
-                        document.getElementById("demo3").innerHTML = ` ${valorHexadecimal}`;
-                        document.getElementById("demo4").innerHTML = ` ${valorBinaria}`;
-                        document.getElementById("demo5").innerHTML = ` ${valorDecimal}`;
-
-                        console.log(valorOctal)
-                }
-                function aparecer_bin() {
-                        demo4.style.display = 'block'
-                }
-
-                function aparecer_hexa() {
-                        demo3.style.display = 'block'
-                }
-
-                function aparecer_octal() {
-                        demo2.style.display = 'block'
-                }
-
-                function aparecer_decimal() {
-                        demo5.style.display = 'block'
-                }
-
-        </script>
+        <script src="index.js"></script>
 </body>
 
 </html>
