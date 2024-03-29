@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///C:/Users/Marise%20Miranda/Downloads/Marises%20Machine.html -->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de bases GS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cardCalculadora">
+
+        <h1>Calculadora de bases GS</h1>
+
+        <div>
+            <input type="text" id="input_numero_para_converter" placeholder="Insira o número a ser convertido">
+
+            <select id="select_base_numero">
+                <option value="2">
+                    Binário
+                </option>
+                <option value="8">
+                    Octal
+                </option>
+                <option value="10">
+                    Decimal
+                </option>
+                <option value="16">
+                    Hexadecimal
+                </option>
+
+            </select>
+            
+            <h3 id="tituloValorConvertido">Valor convertido em:</h3>
+            
+            <div id="div_resultado_conversao"></div>
+        </div>
+        <br>
+        <button onclick="converterNumerosParaBases()">Converter</button>
+        
+    </div>
+</body>
+
+</html>
+
+<script>
+    function converterNumerosParaBases() {
+        let numeroParaConverter = input_numero_para_converter.value
+        let baseNumeroParaConverter = select_base_numero.value
+
+        let numeroEmDecimal = parseInt(numeroParaConverter, baseNumeroParaConverter)
+
+        let numeroBinario = numeroEmDecimal.toString(2);
+        let numeroOctal = numeroEmDecimal.toString(8);
+        let numeroHexadecimal = numeroEmDecimal.toString(16);
+
+        div_resultado_conversao.innerHTML = `
+        Decimal: ${numeroEmDecimal}
+        <br>
+        Binário: ${numeroBinario}
+        <br>
+        Octal: ${numeroOctal}
+        <br>
+        Hexadecimal: ${numeroHexadecimal}`
+    }
+</script>
