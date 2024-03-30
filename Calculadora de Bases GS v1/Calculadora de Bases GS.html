@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///C:/Users/Marise%20Miranda/Downloads/Marises%20Machine.html -->
+<html lang="en">
+
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de Bases GS</title>
+</head>
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        button {
+
+                border-radius: 50px;
+                padding: 5px 15px 5px 15px;
+
+                background-color: #ffffff;
+                color: black;
+                border: white;
+                font-size: 20px;
+
+                width: 150px;
+                transition: ease-in-out 0.3s;
+
+        }
+
+        button:hover{
+                background-color: #030351;
+                width: 180px;
+                color: white;
+        }
+
+        
+</style>
+
+<body style="
+background-color: #acbfb7; 
+font-family: 'Poppins', sans-serif;">
+
+        <center>
+                <h1>Calculadora de Bases GS</h1>
+
+                <br><br>
+
+                <select id="base">
+                        <option value="10">Decimal</option>
+                        <option value="8">Octal</option>
+                        <option value="16">Hexadecimal</option>
+                        <option value="2">Binário</option>
+                </select>
+                <input style="width: 180px;" id="numero" type="text" placeholder="Digite o valor a ser convertido">
+
+
+
+                <h3>Converter para:</h3>
+                <div style="display: flex; justify-content: center; gap: 100px; ">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                                <b>Octal</b>
+                                <input onclick="aparecer_octal()" type="checkbox">
+                                <br>
+                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(0, 0, 0); width: 150px; height: 50px; font-weight: 500;"
+                                        id="demo2"></div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                                <b>Hexadecimal</b>
+                                <input onclick="aparecer_hexa()" type="checkbox">
+                                <br>
+                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(7, 7, 7); width: 150px; height: 50px; font-weight: 500; text-transform: uppercase;"
+                                        id="demo3"></div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                                <b>Binário</b>
+                                <input onclick="aparecer_bin()" type="checkbox">
+                                <br>
+                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(5, 5, 5); width: 150px; height: 50px; font-weight: 500;"
+                                        id="demo4"></div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                                <b>Decimal</b>
+                                <input onclick="aparecer_decimal()" type="checkbox">
+                                <br>
+                                <div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(5, 5, 5); width: 150px; height: 50px; font-weight: 500;"
+                                        id="demo5"></div>
+                        </div>
+                </div>
+                <br>
+                <button onclick="converter()">Converter</button>
+        </center>
+
+
+
+
+        <script>
+
+                function converter() {
+                        var valorNumero = numero.value
+                        var valorBase = base.value
+
+                        var valorDecimal = parseInt(valorNumero, valorBase);
+
+                        var valorOctal = valorDecimal.toString(8);
+
+                        var valorHexadecimal = valorDecimal.toString(16);
+
+                        var valorBinaria = valorDecimal.toString(2);
+
+                        
+
+                        document.getElementById("demo2").innerHTML = ` ${valorOctal}`;
+                        document.getElementById("demo3").innerHTML = ` ${valorHexadecimal}`;
+                        document.getElementById("demo4").innerHTML = ` ${valorBinaria}`;
+                        document.getElementById("demo5").innerHTML = ` ${valorDecimal}`;
+
+                        console.log(valorOctal)
+                }
+                function aparecer_bin() {
+                        demo4.style.display = 'block'
+                }
+
+                function aparecer_hexa() {
+                        demo3.style.display = 'block'
+                }
+
+                function aparecer_octal() {
+                        demo2.style.display = 'block'
+                }
+
+                function aparecer_decimal() {
+                        demo5.style.display = 'block'
+                }
+
+        </script>
+</body>
+
+</html>
